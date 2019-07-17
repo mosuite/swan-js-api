@@ -1,0 +1,1 @@
+BUILD_SUBMITTER -x -u . -e swan4 -m baidu/baiduapp/swan-api -c "export REVISION=${REVISION} && cd baidu/baiduapp/swan-api && sh build.sh"

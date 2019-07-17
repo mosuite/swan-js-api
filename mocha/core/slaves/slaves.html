@@ -1,0 +1,56 @@
+<!-- htmlcs-disable -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mocha test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./lib.css" />
+  </head>
+  <body>
+    <div id="mocha">
+      <div id="myLive"></div>
+      <div id="mycanvas"></div>
+    </div>
+    <script src="./lib.js"></script>
+    <script>
+
+        var loadjs = function (loadPath, success) {
+            return new Promise(function (a, b) {
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = loadPath;
+                script.onload = function () {
+                    // console.log('loaded:'+loadPath);
+                    a();
+                };
+                script.onerror = function () {
+                    // console.log('error'+loadPath);
+                    b();
+                };
+                document.head.appendChild(script);
+            })
+        };
+        
+        /* eslint-disable */
+        require(['src/index'], function (swaninterface) {
+            /* eslint-enable */
+            (function (global) {
+                Object.assign(global, swaninterface);
+                /* globals chai */
+                global.expect = chai.expect;
+
+                swaninterface.bind('PageReady', function (event) {
+                    console.log(event);
+                    loadjs(event.appPath + '/' + event.pagePath + '.js?' + event.timeStamp).then(function () {
+                        require([event.pagePath], function (page) {
+                            page.load();
+                            // console.log('pageloaded:'+event.pagePath);
+                        });
+                    });
+                });
+            })(window);
+        });
+    </script>
+  </body>
+</html>

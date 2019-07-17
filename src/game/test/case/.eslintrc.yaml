@@ -1,0 +1,16 @@
+extends: "../../.eslintrc.yaml"
+globals:
+    assert: true
+    afterEach: true
+    after: true
+    beforeEach: true
+    before: true
+    describe: true
+    it: true
+    xit: true
+    setup: true
+    suiteSetup: true
+    suiteTeardown: true
+    suite: true
+    teardown: true
+    test: true

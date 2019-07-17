@@ -1,0 +1,40 @@
+{
+    "debug": false,
+    "pages": [
+        "tests/index",
+        "demo/demo"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTitleText": "小程序测试",
+        "navigationBarTextStyle": "black",
+        "backgroundTextStyle": "black",
+        "enablePullDownRefresh": false,
+        "backgroundColor": "#ecebee"
+    },
+    "networkTimeout": {
+        "request": 30000,
+        "connectSocket": 10000,
+        "uploadFile": 10000,
+        "downloadFile": 10000
+    },
+    "tabBar": {
+        "color": "#a2a2a2",
+        "selectedColor": "#3388ff",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "list": [{
+                "pagePath": "tests/index",
+                "iconPath": "images/component_normal.png",
+                "selectedIconPath": "images/component_selected.png",
+                "text": "test"
+            },
+            {
+                "pagePath": "demo/demo",
+                "iconPath": "images/component_normal.png",
+                "selectedIconPath": "images/component_selected.png",
+                "text": "hi"
+            }
+        ]
+    }
+}
